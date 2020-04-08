@@ -9,17 +9,12 @@ DigitalOut greenLED(LED2);
 BusOut display(D6, D7, D9, D10, D11, D5, D4, D8);
 
 char seven[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
-float period = 0;
-int flag = 0;
-int sample = 0;
-int i ;
-float j = 0,k;
-float data;
-int freq;
 float ADCdata[500];
 
 int main(){
-
+  int i;
+  float data;
+  int freq;
   for(i = 0; i < 430; i++){
     data = Ain;
     pc.printf("%1.3f\r\n", data);
@@ -36,6 +31,8 @@ int main(){
       display = 0xBF;
       wait(0.5);
     }
+    float j;
+
     else{
       greenLED = 0;
       redLED = 1;
